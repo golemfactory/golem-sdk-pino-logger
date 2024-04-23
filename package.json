@@ -22,7 +22,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "npm run compile",
+    "precompile": "rimraf dist/",
+    "compile": "tsc",
     "format": "prettier -w .",
     "format:check": "prettier -c .",
     "lint": "npm run lint:ts",
@@ -37,6 +39,7 @@
   "devDependencies": {
     "husky": "^9.0.11",
     "prettier": "^3.2.5",
+    "rimraf": "^5.0.5",
     "tsx": "^4.7.2",
     "typescript": "^5.4.5"
   },
