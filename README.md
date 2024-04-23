@@ -8,8 +8,8 @@ This library is designed for use with `@golem-sdk/golem-js` based libraries and 
 
 This library exposes two implementations of the `Logger` interface from `@golem-sdk/golem-js`:
 
-* JSON output logging (`pino`)
-* Pretty formatted logging (`pino-pretty`)
+- JSON output logging (`pino`)
+- Pretty formatted logging (`pino-pretty`)
 
 ## Installation
 
@@ -27,7 +27,7 @@ In your `@golem-sdk/golem-js` based application, you can use in all the places w
 import { pinoPrettyLogger } from "@golem-sdk/pino-logger";
 
 const logger = pinoPrettyLogger({
-  level: "debug"
+  level: "debug",
 });
 ```
 

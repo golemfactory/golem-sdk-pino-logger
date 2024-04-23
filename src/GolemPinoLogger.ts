@@ -1,4 +1,4 @@
-import {Logger} from "@golem-sdk/golem-js";
+import { Logger } from "@golem-sdk/golem-js";
 import * as pino from "pino";
 import * as pinoPretty from "pino-pretty";
 
@@ -39,7 +39,7 @@ class GolemPinoLogger implements Logger {
       : namespace;
     return new GolemPinoLogger(
       this.options,
-      this.logger.child({namespace: fullNamespace}),
+      this.logger.child({ namespace: fullNamespace }),
       fullNamespace,
     );
   }
@@ -48,17 +48,17 @@ class GolemPinoLogger implements Logger {
 /**
  * Golem Logger interface implementation using the Pino library
  */
-export function pinoLogger(
-  options?: pino.LoggerOptions,
-): Logger {
+export function pinoLogger(options?: pino.LoggerOptions): Logger {
   return new GolemPinoLogger(options);
 }
 
 /**
  * Golem Logger interface implementation using the Pino-Pretty library
  */
-export function pinoPrettyLogger(options?: pino.LoggerOptions, prettyOptions?: pinoPretty.PrettyOptions): Logger {
-
+export function pinoPrettyLogger(
+  options?: pino.LoggerOptions,
+  prettyOptions?: pinoPretty.PrettyOptions,
+): Logger {
   return new GolemPinoLogger({
     ...options,
     transport: {

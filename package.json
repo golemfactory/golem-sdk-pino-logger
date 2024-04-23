@@ -24,7 +24,8 @@
   "scripts": {
     "build": "tsc",
     "format": "prettier -w .",
-    "format:check": "prettier -c ."
+    "format:check": "prettier -c .",
+    "prepare": "husky"
   },
   "author": "GolemFactory <contact@golem.network>",
   "license": "LGPL-3.0",
@@ -32,6 +33,7 @@
     "node": ">=18.0.0"
   },
   "devDependencies": {
+    "husky": "^9.0.11",
     "prettier": "^3.2.5",
     "tsx": "^4.7.2",
     "typescript": "^5.4.5"
