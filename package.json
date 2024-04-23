@@ -1,0 +1,46 @@
+{
+  "name": "@golem-sdk/pino-logger",
+  "version": "1.0.0",
+  "description": "Pino-based logging library suitable for use with @golem-sdk/golem-js",
+  "repository": "https://github.com/golemfactory/golem-js-pino-logger",
+  "keywords": [
+    "golem",
+    "network",
+    "distributed",
+    "computing",
+    "sdk",
+    "internet",
+    "computer",
+    "marketplace",
+    "logging",
+    "pino"
+  ],
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier -w .",
+    "format:check": "prettier -c ."
+  },
+  "author": "GolemFactory <contact@golem.network>",
+  "license": "LGPL-3.0",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5",
+    "tsx": "^4.7.2",
+    "typescript": "^5.4.5"
+  },
+  "peerDependencies": {
+    "@golem-sdk/golem-js": "^2.4.3"
+  },
+  "dependencies": {
+    "pino": "^8.20.0",
+    "pino-pretty": "^11.0.0"
+  }
+}
