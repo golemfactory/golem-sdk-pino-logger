@@ -25,6 +25,8 @@
     "build": "tsc",
     "format": "prettier -w .",
     "format:check": "prettier -c .",
+    "lint": "npm run lint:ts",
+    "lint:ts": "tsc --noEmit",
     "prepare": "husky"
   },
   "author": "GolemFactory <contact@golem.network>",
