@@ -1,6 +1,6 @@
 {
   "name": "@golem-sdk/pino-logger",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "Pino logger based library suitable for use with @golem-sdk/golem-js",
   "repository": "https://github.com/golemfactory/golem-sdk-pino-logger",
   "keywords": [
