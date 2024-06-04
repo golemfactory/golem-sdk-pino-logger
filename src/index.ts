@@ -2,7 +2,7 @@ import { Logger } from "@golem-sdk/golem-js";
 import * as pino from "pino";
 import * as pinoPretty from "pino-pretty";
 
-class Index implements Logger {
+class GolemPinoLogger implements Logger {
   private logger: pino.Logger;
 
   constructor(
@@ -33,11 +33,11 @@ class Index implements Logger {
     this.logger.error(ctx, msg);
   }
 
-  child(namespace: string): Index {
+  child(namespace: string): GolemPinoLogger {
     const fullNamespace = this.namespace
       ? `${this.namespace}:${namespace}`
       : namespace;
-    return new Index(
+    return new GolemPinoLogger(
       this.options,
       this.logger.child({ namespace: fullNamespace }),
       fullNamespace,
@@ -49,7 +49,7 @@ class Index implements Logger {
  * Golem Logger interface implementation using the Pino library
  */
 export function pinoLogger(options?: pino.LoggerOptions): Logger {
-  return new Index(options);
+  return new GolemPinoLogger(options);
 }
 
 /**
@@ -59,7 +59,7 @@ export function pinoPrettyLogger(
   options?: pino.LoggerOptions,
   prettyOptions?: pinoPretty.PrettyOptions,
 ): Logger {
-  return new Index({
+  return new GolemPinoLogger({
     ...options,
     transport: {
       target: "pino-pretty",
