@@ -1,6 +1,6 @@
 {
   "name": "@golem-sdk/pino-logger",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Pino logger based library suitable for use with @golem-sdk/golem-js",
   "repository": "https://github.com/golemfactory/golem-sdk-pino-logger",
   "keywords": [
@@ -15,9 +15,17 @@
     "logging",
     "pino"
   ],
-  "type": "module",
-  "main": "dist/index.js",
+  "type": "commonjs",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
   "files": [
     "dist"
   ],
@@ -25,9 +33,10 @@
     "access": "public"
   },
   "scripts": {
-    "build": "npm run compile",
-    "precompile": "rimraf dist/",
-    "compile": "tsc",
+    "build:cjs": "tsc --module commonjs && npx move-file-cli dist/index.js dist/index.cjs",
+    "build:esm": "tsc --module esnext && npx move-file-cli dist/index.js dist/index.mjs",
+    "build": "npm run build:cjs && npm run build:esm",
+    "prebuild": "rimraf dist/",
     "format": "prettier -w .",
     "format:check": "prettier -c .",
     "lint": "npm run lint:ts",
@@ -41,6 +50,7 @@
   },
   "devDependencies": {
     "husky": "^9.0.11",
+    "move-file-cli": "^3.0.0",
     "prettier": "^3.2.5",
     "rimraf": "^5.0.5",
     "tsx": "^4.7.2",
