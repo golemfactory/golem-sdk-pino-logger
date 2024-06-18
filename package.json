@@ -57,7 +57,7 @@
     "typescript": "^5.4.5"
   },
   "peerDependencies": {
-    "@golem-sdk/golem-js": "< 4"
+    "@golem-sdk/golem-js": "<4"
   },
   "dependencies": {
     "pino": "^8.20.0",
