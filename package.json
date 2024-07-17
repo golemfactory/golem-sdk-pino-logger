@@ -49,6 +49,7 @@
     "node": ">=18.0.0"
   },
   "devDependencies": {
+    "@types/node": "^20.14.11",
     "husky": "^9.0.11",
     "move-file-cli": "^3.0.0",
     "prettier": "^3.2.5",

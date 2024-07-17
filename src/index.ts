@@ -2,7 +2,7 @@ import { Logger } from "@golem-sdk/golem-js";
 import * as pino from "pino";
 import * as pinoPretty from "pino-pretty";
 
-class GolemPinoLogger implements Logger {
+export class GolemPinoLogger implements Logger {
   private logger: pino.Logger;
 
   constructor(
@@ -48,7 +48,11 @@ class GolemPinoLogger implements Logger {
 /**
  * Golem Logger interface implementation using the Pino library
  */
-export function pinoLogger(options?: pino.LoggerOptions): Logger {
+export function pinoLogger(options: pino.LoggerOptions = {}): Logger {
+  if (process?.env["GOLEM_PINO_LOG_LEVEL"]) {
+    options.level = process.env.GOLEM_PINO_LOG_LEVEL;
+  }
+
   return new GolemPinoLogger(options);
 }
 
@@ -56,9 +60,13 @@ export function pinoLogger(options?: pino.LoggerOptions): Logger {
  * Golem Logger interface implementation using the Pino-Pretty library
  */
 export function pinoPrettyLogger(
-  options?: pino.LoggerOptions,
+  options: pino.LoggerOptions = {},
   prettyOptions?: pinoPretty.PrettyOptions,
 ): Logger {
+  if (process?.env["GOLEM_PINO_LOG_LEVEL"]) {
+    options.level = process.env.GOLEM_PINO_LOG_LEVEL;
+  }
+
   return new GolemPinoLogger({
     ...options,
     transport: {

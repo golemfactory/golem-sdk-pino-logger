@@ -10,6 +10,7 @@ This library exposes two implementations of the `Logger` interface from `@golem-
 
 - JSON output logging (`pino`)
 - Pretty formatted logging (`pino-pretty`)
+- Support for forcing certain log level by setting `GOLEM_PINO_LOG_LEVEL="debug"` - usefully when you want to control the logging done by this library without changing the application using it.
 
 ## Installation
 
